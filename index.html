@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aaron Choi</title>
+<meta name="description" content="Aaron Choi, River Dell High School Class of 2027. Builds technology around the people it is for: a sign-language glove, tactile math graphs, and a peer-support app.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f6f5f0; --ink: #171a21; --slate: #5b6170; --line: #dcdad2;
+    --cobalt: #1f4fd8; --cobalt-deep: #173ea8; --sky: #e4ebfb; --mint: #d9efe4;
+    --serif: "Instrument Serif", Georgia, serif; --sans: "Inter", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: var(--sans); color: var(--ink); background: var(--paper); line-height: 1.6; font-size: 16.5px; }
+  a { color: var(--cobalt-deep); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+
+  header.site { border-bottom: 1px solid var(--line); background: var(--paper); position: sticky; top: 0; z-index: 5; }
+  header.site .wrap { display: flex; align-items: center; justify-content: space-between; height: 62px; }
+  .brand { font-family: var(--serif); font-size: 24px; color: var(--ink); }
+  nav.top { display: flex; gap: 20px; flex-wrap: wrap; }
+  nav.top a { color: var(--ink); font-size: 14px; font-weight: 500; padding: 4px 0; border-bottom: 2px solid transparent; }
+  nav.top a:hover { text-decoration: none; border-bottom-color: var(--cobalt); }
+
+  .herowrap { background: var(--ink); color: #fff; }
+  .hero { max-width: 980px; margin: 0 auto; padding: 72px 24px 60px; display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: center; }
+  .hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(46px, 6vw, 72px); line-height: 1; margin: 0 0 22px; }
+  .hero h1 em { font-style: italic; color: #9db7ff; }
+  .hero .says { font-size: 20px; line-height: 1.5; margin: 0 0 16px; max-width: 36ch; color: #e9ecf4; }
+  .hero .meta { color: #aab1c3; font-size: 15px; margin: 0 0 28px; max-width: 50ch; }
+  .cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn { display: inline-block; font-weight: 600; font-size: 15px; padding: 11px 20px; border-radius: 6px; background: var(--cobalt); color: #fff; }
+  .btn:hover { background: #2c5df0; text-decoration: none; }
+  .btn.ghost { background: transparent; color: #fff; border: 1.5px solid #6d7a99; }
+  .btn.ghost:hover { background: rgba(255,255,255,.06); }
+  .hero figure { margin: 0; }
+  .hero img { width: 100%; border-radius: 8px; display: block; box-shadow: 0 24px 50px rgba(0,0,0,.45); }
+  .hero figcaption { color: #aab1c3; font-size: 13.5px; margin-top: 10px; }
+
+  .stats { background: var(--cobalt); color: #fff; }
+  .stats .wrap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px 24px; padding: 22px 24px; }
+  .stat .n { font-family: var(--serif); font-size: 26px; line-height: 1.05; }
+  .stat .l { font-size: 13.5px; color: #dbe4ff; margin-top: 4px; }
+
+  main section { padding: 64px 0 8px; border-top: 1px solid var(--line); }
+  main section:first-child { border-top: 0; }
+  .kicker { font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--cobalt-deep); font-weight: 600; margin: 0 0 10px; }
+  h2 { font-family: var(--serif); font-weight: 400; font-size: 40px; line-height: 1.1; margin: 0 0 20px; }
+  h3 { font-size: 19px; font-weight: 600; margin: 28px 0 8px; }
+  p { margin: 0 0 16px; max-width: 70ch; }
+  .two { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: start; }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 22px 24px; }
+  .card.sky { background: var(--sky); border-color: transparent; }
+  .card.mint { background: var(--mint); border-color: transparent; }
+  .card h3 { margin-top: 0; }
+  .card ul { margin: 0; padding-left: 18px; }
+  .card li { margin-bottom: 8px; }
+  .pill { display: inline-block; font-size: 12.5px; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: var(--sky); color: var(--cobalt-deep); margin-right: 6px; }
+  figure.shot { margin: 0; }
+  figure.shot img { width: 100%; border-radius: 8px; border: 1px solid var(--line); display: block; }
+  figure.shot figcaption { font-size: 13.5px; color: var(--slate); margin-top: 8px; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .honors { list-style: none; padding: 0; margin: 0; }
+  .honors li { display: grid; grid-template-columns: 110px 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .honors .y { color: var(--slate); font-size: 14px; }
+  .cert { display: grid; grid-template-columns: 1fr 1.6fr; gap: 28px; align-items: start; margin-top: 28px; }
+  .cert img { width: 100%; border-radius: 6px; border: 1px solid var(--line); }
+  .photo { margin: 0; }
+  .photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: center top; border-radius: 8px; display: block; border: 1px solid var(--line); }
+  .photo figcaption { font-size: 13.5px; color: var(--slate); margin-top: 8px; }
+  .photorow { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 28px; }
+  .certs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 28px; }
+  .certs figure { margin: 0; }
+  .certs img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: top; border-radius: 6px; border: 1px solid var(--line); display: block; background: #fff; }
+  .certs figcaption { font-size: 12.5px; color: var(--slate); margin-top: 6px; line-height: 1.35; }
+  footer { border-top: 1px solid var(--line); margin-top: 56px; padding: 28px 24px 40px; color: var(--slate); font-size: 14px; text-align: center; }
+  @media (max-width: 760px) {
+    .hero, .two, .cert { grid-template-columns: 1fr; }
+    .stats .wrap { grid-template-columns: 1fr 1fr; }
+    .grid3, .grid2, .photorow { grid-template-columns: 1fr; }
+    .certs { grid-template-columns: 1fr 1fr; }
+    header.site .wrap { height: auto; padding: 12px 24px; flex-direction: column; align-items: flex-start; gap: 8px; }
+    h2 { font-size: 34px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <div class="brand">Aaron Choi</div>
+    <nav class="top">
+      <a href="#about">About</a>
+      <a href="#glove">Sign-language glove</a>
+      <a href="#tactile">Tactile graphs</a>
+      <a href="#voy">Mo Soop</a>
+      <a href="#software">Software</a>
+      <a href="#community">Community</a>
+      <a href="#music">Music</a>
+      <a href="#honors">Honors</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="herowrap">
+  <section class="hero">
+    <div>
+      <h1>I build technology around <em>the people it is for.</em></h1>
+      <p class="says">A glove that reads sign language. Math graphs a blind student can read by touch. An app teens open when they do not want to say what is wrong out loud.</p>
+      <p class="meta">River Dell High School, Oradell, New Jersey. Class of 2027. Applying to study human-computer interaction and information science.</p>
+      <div class="cta">
+        <a class="btn" href="#glove">See the work</a>
+        <a class="btn ghost" href="https://doi.org/10.9734/cjast/2026/v45i84733" target="_blank" rel="noopener">Read the paper</a>
+      </div>
+    </div>
+    <figure>
+      <img src="assets/aaron-fair.jpg" alt="Aaron Choi standing beside his research poster and the red sign-language glove prototype at the 2026 Terra North Jersey STEM Fair">
+      <figcaption>With the glove and the poster at the 2026 Terra North Jersey STEM Fair, March 22, 2026.</figcaption>
+    </figure>
+  </section>
+</div>
+
+<div class="stats">
+  <div class="wrap">
+    <div class="stat"><div class="n">IEEE award</div><div class="l">North Jersey Young Engineer Award, 2026 Terra North Jersey STEM Fair</div></div>
+    <div class="stat"><div class="n">Columbia SHP</div><div class="l">Science Honors Program, 2026 to 2027</div></div>
+    <div class="stat"><div class="n">John Locke Prize</div><div class="l">Commendation, Science and Technology, 2026</div></div>
+    <div class="stat"><div class="n">U.S. Senate</div><div class="l">Congressional Recognition for community service, 2025</div></div>
+  </div>
+</div>
+
+<main class="wrap">
+
+<section id="about">
+  <p class="kicker">About</p>
+  <h2>Interfaces for people the default design leaves out</h2>
+  <div class="two">
+    <div>
+      <p>Most of what I have built starts with someone who could not use the normal version of a thing. A Deaf user who needs a glove to turn signs into letters. A blind student who has never been handed a graph. A teenager who will not ask for help by name. I like the engineering, but the part I care about is the moment the device is in someone else’s hands.</p>
+      <p>I program in Python, C++ for Arduino, and web stacks, and I 3D-print whatever the software needs to become physical. I sing bass in the New Jersey All-State Mixed Choir and play trumpet in the North Jersey Regional Band. I have taught Korean to younger students every weekend for two years.</p>
+    </div>
+    <div class="card sky">
+      <h3>At a glance</h3>
+      <ul>
+        <li>Human-computer interaction, assistive technology, product strategy</li>
+        <li>Arduino, flex sensors and IMUs, Python, 3D printing, web apps</li>
+        <li>SAT 1540 (Math 790)</li>
+        <li>Nine AP courses by graduation, including Computer Science A, Calculus AB, Statistics, Physics</li>
+        <li>Columbia University Science Honors Program, 2026 to 2027</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="glove">
+  <p class="kicker">Research</p>
+  <h2>A wearable that reads American Sign Language</h2>
+  <div class="two">
+    <div>
+      <p>Over about twenty weeks in my junior year, I conceived, designed, and built a glove that recognizes ASL letters and numbers. Five flex sensors track how far each finger bends, an inertial measurement unit tracks the orientation of the hand, and an Arduino turns those readings into text on two LCD screens.</p>
+      <p>At the 2026 Terra North Jersey STEM Fair the project earned an Honorable Mention in Engineering and the <strong>IEEE North Jersey Section Young Engineer Award</strong>. I then wrote it up as a sole-author research paper, including the one sensor channel that never gave a stable signal, because an honest account of what did not work was the most useful thing I learned to write.</p>
+      <p><a href="https://doi.org/10.9734/cjast/2026/v45i84733" target="_blank" rel="noopener">Development of a Wearable Sign-language Recognition Prototype with Dual LCD Feedback Using Flex Sensors and IMU Technology</a>. <em>Current Journal of Applied Science and Technology</em>, vol. 45, no. 8, pp. 75 to 90, July 2026.</p>
+    </div>
+    <div class="card">
+      <h3>How it works</h3>
+      <ul>
+        <li><span class="pill">Sensing</span> five flex sensors on the fingers, one IMU on the back of the hand</li>
+        <li><span class="pill">Processing</span> Arduino reads the channels and matches them to isolated ASL letters and numbers</li>
+        <li><span class="pill">Output</span> dual LCD feedback so the signer and the reader both see the result</li>
+        <li><span class="pill">Status</span> working prototype, tested under controlled conditions; next step is a larger vocabulary and more users</li>
+      </ul>
+    </div>
+  </div>
+  <div class="photorow">
+    <figure class="photo"><img src="assets/fair-booth.jpg" alt="Aaron at his project table with the poster, the glove, and the red processing unit with LCD screens"><figcaption>Project EN.05 at the fair: the glove, the red processing box with its two LCD screens, and a QR code to the paper.</figcaption></figure>
+    <figure class="photo"><img src="assets/fair-ceremony.jpg" alt="Award ceremony at Kean University with students on stage and the special awards sponsors on screen"><figcaption>Special awards ceremony at Kean University, March 22, 2026.</figcaption></figure>
+  </div>
+</section>
+
+<section id="tactile">
+  <p class="kicker">Touch the Curve, with the Bergen County Youth Assembly</p>
+  <h2>Math graphs you read with your fingertips</h2>
+  <div class="two">
+    <div>
+      <p>A graph is one of the few things in a math class a blind student cannot simply be handed. Touch the Curve is my answer: 3D-printed graphs with a raised ridge for the function, textured grooves for the axes, and labels in Unified English Braille, each about the size of a postcard.</p>
+      <p>Printing one graph by hand is slow, so I wrote <strong>TactiGraph</strong>, a Python program that takes an equation and produces a printer-ready STL file. A teacher can type <em>y = sin x</em> and print it without me. The project is part of my work with the <a href="https://bcyouthassembly.org" target="_blank" rel="noopener">Bergen County Youth Assembly</a>, a student civic group in Bergen County, New Jersey.</p>
+    </div>
+    <figure class="shot">
+      <img src="assets/tactile-graphs.jpg" alt="Tactile graph set with braille labels">
+      <figcaption>The first set: sin x, x², x³, |x|, 1/x, and √x. Raised ridges for the curve, grooved axes, braille tick labels.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="voy">
+  <p class="kicker">Voices of the Young</p>
+  <h2>Mo Soop: an anonymous place for teens to talk</h2>
+  <div class="two">
+    <div>
+      <p>As Vice Director of Product Strategy at Voices of the Young, a student-run mental health organization, I direct the product strategy for <a href="https://mo-soop.glide.page" target="_blank" rel="noopener">Mo Soop</a>, an anonymous peer-support app for teenagers that is live and in use. I also guided development of <a href="https://mo-ri.glide.page" target="_blank" rel="noopener">Mo Ri</a>, a companion app with ADHD-friendly study guides and emotional-support tools, which launched on October 9, 2026.</p>
+      <p>During finals I ran the <strong>Finals Relief Project</strong>: we 3D-printed and donated 150 stress-relief devices, each one pointing the student who received it back to the app. It was the step that moved the organization from awareness messaging to a tool people actually open.</p>
+      <div class="cta" style="margin-top:8px">
+        <a class="btn" href="https://mo-soop.glide.page" target="_blank" rel="noopener">Open Mo Soop</a>
+        <a class="btn ghost" style="color:var(--cobalt-deep);border-color:var(--cobalt)" href="https://mo-ri.glide.page" target="_blank" rel="noopener">Open Mo Ri</a>
+      </div>
+    </div>
+    <div class="card mint">
+      <h3>Finals Relief Project</h3>
+      <ul>
+        <li>150 stress-relief devices designed, 3D-printed, and donated</li>
+        <li>Each device links the student to Mo Soop</li>
+        <li>Mo Soop is live; Mo Ri launched October 9, 2026</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="software">
+  <p class="kicker">Software</p>
+  <h2>Shipping tools other people depend on</h2>
+  <div class="grid3">
+    <div class="card">
+      <h3>Intern, WellEd Labs</h3>
+      <p>Twelve weeks at an edtech company in Palisades Park, New Jersey (November 2025 to January 2026, five hours a week). I worked in AppSheet and wrote Python APIs to update and process the application’s data, managed tasks in Asana, and worked with the team on the app’s user experience.</p>
+    </div>
+    <div class="card">
+      <h3>Software Engineering Intern, SP&amp;SM STIP</h3>
+      <p>At an architecture firm, over two years of part-time work, I built the internal time-tracking application staff use to log and manage hours across active projects. Shipping something a company depends on every day taught me more about requirements and edge cases than any class.</p>
+    </div>
+    <div class="card">
+      <h3>Robotics Club, River Dell High School</h3>
+      <p>Three seasons on the build team, designing and engineering components of the school’s competition robot, and growing from a new member into one of the designers the team relies on.</p>
+    </div>
+  </div>
+</section>
+
+<section id="community">
+  <p class="kicker">Teaching, service, and leadership</p>
+  <h2>The same idea, off the screen</h2>
+  <div class="grid3">
+    <div class="card">
+      <h3>New Jersey Korean School</h3>
+      <p>Teaching assistant for two school years, more than 180 hours. Weekly language and culture lessons for younger students, and translator between students and teachers when the two sides could not quite reach each other. Recognized with the National Association for Korean Schools Junior Leadership Award (Gold Prize, 2025), a Bergen County Certificate of Commendation (2025), and a U.S. Senate Certificate of Special Congressional Recognition (2025).</p>
+    </div>
+    <div class="card">
+      <h3>Clothing Donations to Help Kids in the World</h3>
+      <p>Vice President, Strategic Development. I built our hospital partnerships, including Hackensack University Medical Center, for a student group that has delivered more than $15,000 in new clothing to pediatric patients and their families.</p>
+    </div>
+    <div class="card">
+      <h3>Young Global Leaders of the East</h3>
+      <p>Vice President, Research and Global Affairs. Co-led the 2nd Annual Global Leadership Forum on peace and international cooperation, ran a workshop series on advocacy and social entrepreneurship, and coordinated volunteers across three partner organizations, including Korean Heritage Night with the New York Mets.</p>
+    </div>
+    <div class="card">
+      <h3>Walk Alongside</h3>
+      <p>Free tutoring and mentorship for students without private academic help, and a reusable set of learning materials in five subjects so the next tutor does not start from zero.</p>
+    </div>
+    <div class="card">
+      <h3>LiNK North Jersey Rescue Team</h3>
+      <p>Awareness campaigns, educational outreach, and fundraising for North Korean refugees with the North Jersey chapter of Liberty in North Korea.</p>
+    </div>
+    <div class="card">
+      <h3>School</h3>
+      <p>Secretary, Science National Honor Society. Senior officer in DECA, where I qualified for the state competition in my first year. Three seasons of tennis. Member of the National Honor Society, the National English Honor Society, and Tri-M Music Honor Society.</p>
+    </div>
+  </div>
+  <div class="photorow">
+    <figure class="photo"><img src="assets/korean-school.jpg" alt="Teaching assistants and teachers of the Korean School of New Jersey at the TA award ceremony"><figcaption>Teaching assistant awards at the Korean School of New Jersey, 2024 to 2025 school year.</figcaption></figure>
+    <figure class="photo"><img src="assets/trumpet-911.jpg" alt="Aaron playing trumpet at a September 11 memorial service beside a fire truck"><figcaption>Playing taps at a September 11 memorial service with the River Dell music department.</figcaption></figure>
+  </div>
+</section>
+
+<section id="music">
+  <p class="kicker">Music</p>
+  <h2>Bass 2 and trumpet</h2>
+  <div class="two">
+    <div>
+      <p>I have been selected by statewide audition to the <strong>New Jersey All-State Mixed Choir</strong> twice and to the North Jersey Regional Choir three times, singing Bass 2. On trumpet I have been selected twice to the North Jersey Regional Band, and I am field captain of the River Dell marching band, my sixth year in the program.</p>
+      <p>In January 2024 I won first prize for trumpet at the East Coast International Competition and played in the winners’ recital at Weill Recital Hall, Carnegie Hall, and took first place for trumpet with the New York Classical Youth Orchestra, recognized by New York State Senator John C. Liu.</p>
+    </div>
+    <div class="card sky">
+      <h3>Ensembles</h3>
+      <ul>
+        <li>NJ All-State Mixed Choir, two years</li>
+        <li>North Jersey Regional Choir, three years</li>
+        <li>North Jersey Regional Band, trumpet, two years</li>
+        <li>River Dell Marching Band, field captain, grades 7 to 12</li>
+      </ul>
+    </div>
+  </div>
+  <div class="photorow">
+    <figure class="photo"><img src="assets/choir.jpg" alt="Regional choir performing on stage"><figcaption>North Jersey Regional Choir.</figcaption></figure>
+    <figure class="photo"><img src="assets/allstate-njpac.jpg" alt="The New Jersey All-State Chorus and Orchestra on stage at the New Jersey Performing Arts Center"><figcaption>New Jersey All-State Chorus and Orchestra, New Jersey Performing Arts Center, November 2024.</figcaption></figure>
+  </div>
+</section>
+
+<section id="honors">
+  <p class="kicker">Honors</p>
+  <h2>Recognition</h2>
+  <ul class="honors">
+    <li><span class="y">2026</span><span>Columbia University Science Honors Program, selected for the 2026 to 2027 academic year</span></li>
+    <li><span class="y">2026</span><span>IEEE North Jersey Section Young Engineer Award and Honorable Mention in Engineering, Terra North Jersey STEM Fair</span></li>
+    <li><span class="y">2026</span><span>Sole-author research paper, <em>Current Journal of Applied Science and Technology</em>, vol. 45, no. 8</span></li>
+    <li><span class="y">2026</span><span>Commendation, John Locke Institute Global Essay Prize, Science and Technology (shortlisted from the top 17.5% of 100,227 entries from 183 countries)</span></li>
+    <li><span class="y">2026</span><span>Silver Award, Level 4, National Spanish Exam</span></li>
+    <li><span class="y">2025</span><span>Certificate of Special Congressional Recognition for community service, U.S. Senator Andy Kim</span></li>
+    <li><span class="y">2025</span><span>Certificate of Commendation, County of Bergen, for volunteer service at the Korean School of New Jersey</span></li>
+    <li><span class="y">2025</span><span>Junior Leadership Award, Gold Prize, National Association for Korean Schools</span></li>
+    <li><span class="y">2025</span><span>Outstanding Achievement, Intermediate Division, American Computer Science League, 2024 to 2025</span></li>
+    <li><span class="y">2024, 2025</span><span>New Jersey All-State Mixed Choir, selected by statewide audition</span></li>
+    <li><span class="y">2024</span><span>First Prize, trumpet, East Coast International Competition, with the winners’ recital at Weill Recital Hall, Carnegie Hall</span></li>
+    <li><span class="y">2024</span><span>First Place, trumpet, New York Classical Youth Orchestra, recognized by New York State Senator John C. Liu</span></li>
+    <li><span class="y">2024</span><span>PCAP Certified Associate Python Programmer, Python Institute; Joy of Coding, University of Michigan ECE Continuum</span></li>
+    <li><span class="y">State</span><span>DECA New Jersey state competition qualifier, first year competing</span></li>
+  </ul>
+  <div class="certs">
+    <figure><img src="assets/cert-ieee.jpg" alt="IEEE North Jersey Young Engineer Award certificate"><figcaption>IEEE North Jersey Young Engineer Award, March 2026</figcaption></figure>
+    <figure><img src="assets/cert-terra.jpg" alt="Terra North Jersey STEM Fair Honorable Mention certificate"><figcaption>Honorable Mention, Engineering, Terra North Jersey STEM Fair</figcaption></figure>
+    <figure><img src="assets/john-locke.jpg" alt="John Locke Institute Commendation certificate"><figcaption>John Locke Institute Global Essay Prize, Commendation, 2026</figcaption></figure>
+    <figure><img src="assets/cert-andykim.jpg" alt="Certificate of Special Congressional Recognition from Senator Andy Kim"><figcaption>U.S. Senate Certificate of Special Congressional Recognition, 2025</figcaption></figure>
+    <figure><img src="assets/cert-bergen.jpg" alt="County of Bergen Certificate of Commendation"><figcaption>County of Bergen Certificate of Commendation, 2025</figcaption></figure>
+    <figure><img src="assets/cert-naks.jpg" alt="National Association for Korean Schools Junior Leadership Award, Gold Prize"><figcaption>NAKS Junior Leadership Award, Gold Prize, 2025</figcaption></figure>
+    <figure><img src="assets/cert-ecic.jpg" alt="East Coast International Competition First Prize certificate"><figcaption>East Coast International Competition, First Prize, trumpet, 2024</figcaption></figure>
+    <figure><img src="assets/cert-liu.jpg" alt="Senator John C. Liu Certificate of Recognition"><figcaption>New York Classical Youth Orchestra, 1st Place, trumpet, 2024</figcaption></figure>
+    <figure><img src="assets/cert-nse.jpg" alt="National Spanish Exam Silver Award certificate"><figcaption>National Spanish Exam, Silver Award, Level 4, 2026</figcaption></figure>
+    <figure><img src="assets/cert-acsl.jpg" alt="American Computer Science League Outstanding Achievement certificate"><figcaption>ACSL Outstanding Achievement, Intermediate Division, 2024 to 2025</figcaption></figure>
+    <figure><img src="assets/tactile-graphs.jpg" alt="Tactile graphs"><figcaption>Touch the Curve, first set of graphs</figcaption></figure>
+  </div>
+</section>
+
+<section id="contact">
+  <p class="kicker">Contact</p>
+  <h2>Say hello</h2>
+  <p>I am happy to talk about the glove, the graphs, or how to print your own. Email me at <a href="mailto:aaronchoi202@gmail.com">aaronchoi202@gmail.com</a>.</p>
+</section>
+
+</main>
+
+<footer><div>© 2026 Aaron Choi</div></footer>
+</body>
+</html>
